@@ -25,7 +25,7 @@ const EventHeader = (props) => {
                 </Button>
             </div>
 
-            <SwipeableTemporaryDrawer setActiveBtn={setActiveBtn} />
+            <SwipeableTemporaryDrawer activeBtn={activeBtn} setActiveBtn={setActiveBtn} />
         </div>
     )
 }

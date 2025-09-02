@@ -141,8 +141,8 @@
 }
 
 .eventCardDate svg {
-  font-size: 16px;
-  vertical-align: middle;
+    font-size: 16px;
+    vertical-align: middle;
 }
 
 .createHeaderContainer {
@@ -159,7 +159,7 @@
     width: 100%;
     max-width: 700px;
 }
- 
+
 .characterCount {
     opacity: 0.5;
 }
@@ -177,6 +177,11 @@
 }
 
 @media screen and (max-width: 480px) {
+    .headerButton {
+        padding: 0 9px !important;
+        margin: 9px !important;
+    }
+
     .dashboardLayout {
         width: 100%;
     }
