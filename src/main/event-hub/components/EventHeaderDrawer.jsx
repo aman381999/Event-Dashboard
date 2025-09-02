@@ -12,11 +12,16 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 
 export default function SwipeableTemporaryDrawer(props) {
-    const { setActiveBtn } = props;
+    const { activeBtn, setActiveBtn } = props;
 
     const [state, setState] = useState({
         top: false
     });
+
+    const menuItems = [
+        { label: "Dashboard", key: "dashboard" },
+        { label: "Create Event", key: "create" }
+    ];
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (
@@ -46,24 +51,16 @@ export default function SwipeableTemporaryDrawer(props) {
             </div>
             <Divider />
             <List>
-                {['Dashboard', 'Create Event'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton onClick={() => handleClickItem(text)}>
-                            <ListItemText primary={text} />
+                {menuItems.map((item) => (
+                    <ListItem key={item.key} disablePadding>
+                        <ListItemButton className={`headerButton ${activeBtn === item.key ? "active" : ""}`} onClick={() => setActiveBtn(item.key)}>
+                            <ListItemText primary={item.label} />
                         </ListItemButton>
                     </ListItem>
                 ))}
             </List>
         </Box>
     );
-
-    const handleClickItem = (opt) => {
-        if (opt == "Create Event") {
-            setActiveBtn("create");
-        } else if (opt == "Dashboard") {
-            setActiveBtn("dashboard");
-        }
-    }
 
     return (
         <div className='eventHeaderContainerMob'>
