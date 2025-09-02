@@ -1,0 +1,38 @@
+
+export function getFormattedDate(dateStr) {
+    // "2025-09-15" => Sept 15, 2025
+
+    if (dateStr && dateStr != "") {
+
+
+        const date = new Date(dateStr);
+
+        const months = [
+            "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
+        ];
+
+        const formatted = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+
+        return formatted;
+    }
+
+}
+
+export const truncateText = (text, limit = 100) => {
+    //after 100 characters it will show ...
+    if (text.length > limit) {
+        return text.slice(0, limit) + "…";
+    }
+    return text;
+};
+
+
+export const formatDate = (date) => {
+    // to "2025-09-15"
+    const d = new Date(date);
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+};
